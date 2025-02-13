@@ -1,32 +1,36 @@
 // swift-tools-version:5.7
+
 import PackageDescription
 
 let package = Package(
     name: "HeapNotificationAutocapture",
     platforms: [
-        .macOS(.v10_14),
-        .iOS(.v12),
-        .watchOS(.v5),
+        .macOS(.v11),
+        .iOS(.v13),
+        .watchOS(.v6),
+        .tvOS(.v13),
     ],
     products: [
-        .library(
-            name: "HeapNotificationAutocapture",
-            targets: ["HeapNotificationAutocapture"])
+        .library(name: "HeapNotificationAutocapture", targets: [
+            "__HeapNotificationAutocapture",
+        ]),
     ],
     dependencies: [
-        .package(url: "https://github.com/heap/heap-swift-core-sdk.git", from: "0.7.0"),
+        .package(url: "https://github.com/heap/heap-swift-core-sdk.git", from: "0.8.0"),
     ],
     targets: [
         .target(
-            name: "HeapNotificationAutocapture",
+            name: "__HeapNotificationAutocapture",
             dependencies: [
                 .product(name: "HeapSwiftCore", package: "heap-swift-core-sdk"),
-                "HeapNotificationAutocaptureImplementation",
-            ]),
-        .binaryTarget(
-            name: "HeapNotificationAutocaptureImplementation",
-            url: "https://cdn.heapanalytics.com/ios/heap-notification-autocapture-0.7.0.zip",
-            checksum: "dd76baafa931dcf1b9a0a2f7a4329f3efbd19d0e4a968d0280e643881f673cba"
+                "HeapNotificationAutocapture",
+            ]
         ),
-    ]
+        .binaryTarget(
+            name: "HeapNotificationAutocapture",
+            url: "https://github.com/heap/heap-notification-autocapture-sdk/releases/download/0.8.0/package.zip",
+            checksum: "6f7383d8e5847f9040854ad3973c0d07cb98c538251456d17aa3a06818e1d7d0"
+    )
+    ],
+    swiftLanguageVersions: [.v5]
 )
