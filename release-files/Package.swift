@@ -28,7 +28,7 @@ let package = Package(
         ),
         .binaryTarget(
             name: "HeapNotificationAutocapture",
-            url: "https://github.com/heap/heap-notification-autocapture-sdk/releases/download/0.9.0-alpha.6/package.zip",
+            url: "https://github.com/heap/heap-notification-autocapture-sdk/releases/download/0.9.0/package.zip",
             checksum: "1e2447259cbaadc5fef8dadfec7e8a5d3fcdf1e457502f46bb46bd822bdd8393"
     )
     ],
