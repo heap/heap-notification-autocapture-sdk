@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'HeapNotificationAutocapture'
-    s.version = '0.9.0-alpha.7'
+    s.version = '0.9.0'
     s.summary = 'HeapNotificationAutocapture is an push notification autocapture library for iOS, watchOS, and macOS apps.'
     s.homepage = 'https://docs.contentsquare.com/ios'
     s.author = { 'Contentsquare' => 'contact@contentsquare.com' }
